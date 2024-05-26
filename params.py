@@ -1,0 +1,3 @@
+blob_params = {'symmetrize': True, 'n_neighbors': 49, 'max_iter_layout': 125, 'alpha': 0.46856501475366885, 't': 9.537907523515427, 'multiplier': 1.0640125980997457, 'cutoff': 19.652757982045056, 'df': 2.1217496980322914}
+dig_params = {'symmetrize': False, 'n_neighbors': 29, 'max_iter_layout': 240, 'alpha': 0.5355877351034618, 't': 9.237764867771388, 'multiplier': 2.3949055090171245, 'cutoff': 28.464511466572148, 'df': 4.9344321746508095}
+dig_params2 = {'symmetrize': False, 'n_neighbors': 93, 'max_iter_layout': 379, 'alpha': 0.7690829937658907, 't': 1.2539938667503494, 'multiplier': 2.4067762470641587, 'cutoff': 11.240924445486508, 'df': 1.5130852701566677}
