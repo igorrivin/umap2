@@ -11,7 +11,6 @@ import plotly.express as px
 import pandas as pd
 import gc
 import sklearn.utils.extmath as xm
-import openml
 from loguru import logger
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
