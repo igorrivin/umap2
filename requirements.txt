@@ -1,7 +1,5 @@
-faiss-gpu
 jax
 jaxlib
-jax-cuda
 loguru
 umap-learn
 pandas
@@ -9,7 +7,7 @@ numpy
 optuna
 scikit-learn
 scikit-learn-extra
-scikit-learn-contrib
 openml
 scipy
 scikit-optimize
+loguru

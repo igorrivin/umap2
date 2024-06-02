@@ -1,45 +1,13 @@
-from sklearn.metrics import silhouette_score, davies_bouldin_score, calinski_harabasz_score
 import numpy as np
+import random
 import faiss
+from sklearn.metrics import pairwise_distances
+from scipy.stats import spearmanr
 
-def calculate_silhouette_score(data, labels):
-    score = silhouette_score(data, labels)
-    if score > 0.7:
-        quality = "Excellent"
-    elif score > 0.5:
-        quality = "Good"
-    elif score > 0.3:
-        quality = "Fair"
-    else:
-        quality = "Poor"
-    return score, quality
-
-def calculate_davies_bouldin_index(data, labels):
-    score = davies_bouldin_score(data, labels)
-    if score < 0.5:
-        quality = "Excellent"
-    elif score < 1.0:
-        quality = "Good"
-    elif score < 2.0:
-        quality = "Fair"
-    else:
-        quality = "Poor"
-    return score, quality
-
-def calculate_calinski_harabasz_index(data, labels):
-    score = calinski_harabasz_score(data, labels)
-    # Higher is better, so the qualitative measure is relative
-    if score > 3000:
-        quality = "Excellent"
-    elif score > 2000:
-        quality = "Good"
-    elif score > 1000:
-        quality = "Fair"
-    else:
-        quality = "Poor"
-    return score, quality
-
-
+# Suppress all warnings
+import warnings
+warnings.filterwarnings('ignore')
+#
 
 def do_spearman(X, X_embedded, sample_size = 2000):
   # Spearman Rank Correlation (using sampling)
@@ -95,4 +63,46 @@ def trustworthiness(X, X_embedded, n_neighbors=5, extended_neighbors=20):
 
     T = 1.0 - (2.0 / (n_samples * n_neighbors * (2 * n_samples - 3 * n_neighbors - 1))) * rank_diff_sum
     return T
+
+
+# to be removed ...
+
+from sklearn.metrics import silhouette_score, davies_bouldin_score, calinski_harabasz_score
+
+def calculate_silhouette_score(data, labels):
+    score = silhouette_score(data, labels)
+    if score > 0.7:
+        quality = "Excellent"
+    elif score > 0.5:
+        quality = "Good"
+    elif score > 0.3:
+        quality = "Fair"
+    else:
+        quality = "Poor"
+    return score, quality
+
+def calculate_davies_bouldin_index(data, labels):
+    score = davies_bouldin_score(data, labels)
+    if score < 0.5:
+        quality = "Excellent"
+    elif score < 1.0:
+        quality = "Good"
+    elif score < 2.0:
+        quality = "Fair"
+    else:
+        quality = "Poor"
+    return score, quality
+
+def calculate_calinski_harabasz_index(data, labels):
+    score = calinski_harabasz_score(data, labels)
+    # Higher is better, so the qualitative measure is relative
+    if score > 3000:
+        quality = "Excellent"
+    elif score > 2000:
+        quality = "Good"
+    elif score > 1000:
+        quality = "Fair"
+    else:
+        quality = "Poor"
+    return score, quality
 
